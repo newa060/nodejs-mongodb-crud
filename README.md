@@ -1,10 +1,14 @@
-# Node.js CRUD Application
+# Node.js Authentication & CRUD Application
 
-A simple CRUD web application built using Node.js, Express, EJS, and MongoDB.
+A full-stack web application built using Node.js, Express, EJS, and MongoDB that supports user authentication (Signup/Login) with JWT and secure password hashing, along with complete CRUD functionality.
 
 ## 🚀 Features
-- Create, Read, Update, Delete users
-- Server-side rendering using EJS
+- User Signup & Login
+- Password hashing using bcrypt
+- JWT-based authentication
+- Create, Read, Update, Delete (CRUD) operations
+- Protected routes
+- Server-side rendering with EJS
 - MongoDB database with Mongoose
 - Clean and simple UI
 
@@ -14,15 +18,19 @@ A simple CRUD web application built using Node.js, Express, EJS, and MongoDB.
 - EJS
 - MongoDB
 - Mongoose
+- bcrypt
+- JSON Web Token (JWT)
 - Tailwind CSS
 
 ## 📸 Screenshots
-![Create User](screenshots/home.png)
-![Read User](screenshots/Read.png)
-![Edit User](screenshots/Update.png)
+![Home Page](screenshots/home.png)  
+![Signup Page](screenshots/Signup.png)  
+![Signin Page](screenshots/Signin.png)  
+![Read Data](screenshots/Read.png)  
+![Update Data](screenshots/Update.png)
 
 ## ⚙️ Installation & Run
-1. Clone the repository
-   ```bash
-   git clone https://github.com/your-username/nodejs-ejs-mongodb-crud.git
 
+1. Clone the repository
+```bash
+git clone https://github.com/newa060/nodejs-mongodb-crud
