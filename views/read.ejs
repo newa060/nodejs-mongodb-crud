@@ -3,39 +3,89 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>All Users</title>
 
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
-  <body>
-    <div class="w-full h-full bg-zinc-900 p-10 text-white">
-      <a class="text-blue-500" href="/">Back to home</a>
-      <h1 class="text-3xl p-2 mt-8">All Users</h1>
-      
-      <div class="users flex gap-3 flex-wrap mt-4">
-        <% if (users.length > 0) {%>
+
+  <body class="bg-gradient-to-br from-slate-900 via-zinc-900 to-slate-800
+               min-h-screen text-white">
+
+    <!-- Navbar -->
+    <nav class="w-full px-14 py-6 flex justify-between items-center">
+      <h1 class="text-2xl font-semibold text-slate-200">
+        User Management
+      </h1>
+
+      <a href="/" class="text-slate-300 hover:text-indigo-400 transition">
+        Back to Home
+      </a>
+    </nav>
+
+    <!-- Content -->
+    <main class="px-14 mt-14">
+
+      <h2 class="text-4xl font-semibold mb-3">All Users</h2>
+      <p class="text-slate-400 mb-12 text-lg">
+        Manage all registered users in your system
+      </p>
+
+      <!-- Users Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <% if (users.length > 0) { %>
         <% users.forEach(function(user) { %>
-          
-            <div class="user w-72 p-4 bg-zinc-800 rounded-lg">
-          <div class="w-full h-52 bg-zinc-500 rounded-lg overflow-hidden">
-            <img class="w-full h-full object-cover" src="<%= user.image %>" alt="">
+
+        <div class="bg-zinc-900/80 backdrop-blur-xl rounded-2xl
+                    shadow-xl border border-white/5 overflow-hidden">
+
+          <!-- Image -->
+          <div class="h-56 bg-zinc-700 overflow-hidden">
+            <img
+              src="<%= user.image %>"
+              alt=""
+              class="w-full h-full object-cover"
+            />
           </div>
 
-          <h3 class="text-xl mt-3 tracking-tighter"><%= user.name %></h3>
-          <h5 class="text-zinc-500 mt-1"><%= user.email%></h5>
+          <!-- Content -->
+          <div class="p-6">
+            <h3 class="text-xl font-semibold tracking-tight">
+              <%= user.name %>
+            </h3>
+            <p class="text-slate-400 mt-1">
+              <%= user.email %>
+            </p>
 
-          <div class="flex gap-5 mt-10">
-            <a class="text-zinc-600" href="/edit/<%= user._id%>">Edit User</a>
-            <a class="text-red-500" href="/delete/<%= user._id%>">Delete User</a>
+            <!-- Actions -->
+            <div class="flex justify-between mt-6 text-sm">
+              <a
+                href="/edit/<%= user._id %>"
+                class="text-indigo-400 hover:text-indigo-300 transition"
+              >
+                Edit
+              </a>
+
+              <a
+                href="/delete/<%= user._id %>"
+                class="text-rose-400 hover:text-rose-300 transition"
+              >
+                Delete
+              </a>
+            </div>
           </div>
+
         </div>
-        <%})%>
-        <%} else {%>
-            <h2 class="text-zinc-400">No User yet</h2>
-            <%}%>
-          
+
+        <% }) %>
+        <% } else { %>
+          <p class="text-slate-400 text-lg">No users found</p>
+        <% } %>
+
       </div>
-    </div>
+
+    </main>
+
   </body>
 </html>
